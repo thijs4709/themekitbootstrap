@@ -1,0 +1,43 @@
+{
+  "name": "bootstrap5kit",
+  "version": "1.0.0",
+  "description": "Gemaakt door Syntra West",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass-css": "sass --update --style=expanded scss/style.scss:assets/css/style.css",
+    "sass-dev": "sass --watch --update --style=compressed scss/style.scss:assets/css/style.min.css",
+    "sass-prod": "sass --no-source-map --style=compressed scss/style.scss:assets/css/style.min.css",
+    "css-prefix": "postcss --replace assets/css/style.css --use autoprefixer --map",
+    "css-purge-full": "purgecss --keyframes --css assets/css/style.css --content ./*.html \"node_modules/bootstrap/js/dist/{util,modal}.js\" --output assets/css/",
+    "css-purge-min": "purgecss --keyframes --css assets/css/style.min.css --content ./*.html \"node_modules/bootstrap/js/dist/{util,modal}.js\" --output assets/css/",
+    "js-rollup": "rollup js/main.js --file ./assets/js/bundle.js --format cjs",
+    "js-minify": "terser ./assets/js/bundle.js -c -m -o ./assets/js/bundle.min.js",
+    "dev": "npm-run-all sass-dev js-rollup js-minify",
+    "build": "npm-run-all sass-prod css-prefix js-rollup js-minify",
+    "serve": "serve"
+
+  },
+  "keywords": [
+    "bootstrap"
+  ],
+  "author": "Tom Vanhoutte",
+  "license": "ISC",
+  "dependencies": {
+    "@fontsource/lato": "^4.5.10",
+    "@popperjs/core": "^2.11.6",
+    "bootstrap": "^5.2.2",
+    "bootstrap-icons": "^1.9.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.18",
+    "postcss-cli": "^10.0.0",
+    "purgecss": "^5.0.0",
+    "rollup": "^3.2.5",
+    "sass": "^1.56.0",
+    "serve": "^14.0.1",
+    "terser": "^5.15.1"
+  }
+}

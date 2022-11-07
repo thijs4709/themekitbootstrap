@@ -1,0 +1,22 @@
+//scss herbruikbaar voor op elke pagine
+/*button-variant($background, $border, $hover-background: darken($background, 7.5%), $hover-border: darken($border, 10%), $active-background: darken($background, 10%), $active-border: darken($border, 12.5%))*/
+.btn-default {
+  @include button-variant(rgba(0,0,0,0.3), white, white, rgba(0,0,0,0.6), white, white);
+  border-radius: 0;
+}
+
+//mixins
+
+
+//globale classes
+
+
+//header start
+
+//header end
+
+
+//footer start
+
+
+//footer end
